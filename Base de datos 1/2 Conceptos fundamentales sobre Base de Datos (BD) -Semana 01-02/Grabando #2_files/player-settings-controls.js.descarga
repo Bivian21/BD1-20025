@@ -1,0 +1,188 @@
+let qualityLoaded
+let displayedQualitySection = false;
+let displayedSpeedSection = false;
+
+function displaySettingsControls() {
+    let insertAfterElement = $('.vjs-volume-panel')[0];
+    // do not add custom settings if no volume panel
+    if (!insertAfterElement) {
+        return;
+    }
+    insertAfter(createButton(), insertAfterElement);
+};
+
+function populateQualitySettings() {
+    if ($('.vjs-custom-settings-control').length === 0) {
+        displaySettingsControls();
+    }
+    createQualitySelectButton();
+
+    qualityLoaded = setInterval(createQualityMenu, 100);
+}
+
+function populatePlaybackSpeedSettings() {
+    if ($('.vjs-custom-settings-control').length === 0) {
+        displaySettingsControls();
+    }
+    toggleSpeedSection();
+
+    let menu = $('.vjs-playback-rate .vjs-menu-content')[0];
+
+    // populate menu with custom playback speed options if it is exists
+    if (menu) {
+        $(menu).addClass('custom-playback-speed')
+            .css('overflow', 'hidden');
+        menu.insertBefore(createTitleElement(), menu.firstChild);
+
+        $('.list-wrapper').append(menu);
+
+        $('.custom-playback-speed .vjs-menu-item').click(function () {
+            $('.playback-rate-value').text($(this).children('.vjs-menu-item-text').text());
+        });
+    }
+}
+
+function createQualityMenu() {
+    if ($('.vjs-quality-selector .vjs-menu-item').length > 0) {
+        clearInterval(qualityLoaded);
+        toggleQualitySection();
+        $('.vjs-quality-selector .vjs-menu-content .vjs-menu-item')
+            .appendTo('.custom-quality-selector');
+
+        $('.custom-quality-selector .vjs-menu-title').click(toggleQualitySection);
+        $('.custom-quality-selector li.vjs-menu-item').click(function () {
+            $('.quality-value').text($(this).children('.vjs-menu-item-text').text());
+        });
+
+        let qualityLevels = videojs.getPlayer('mp4Player').qualityLevels().levels_
+        qualityLevels.map(function(value) {
+            $('.custom-quality-selector .vjs-menu-item').each(function () {
+                let optionText = $(this).children('.vjs-menu-item-text').text();
+                optionText = optionText.substring(0, optionText.length - 1);
+
+                if (value.height == optionText) {
+                    let properQualityValue = value.id.split('_')[1].split('.')[0];
+                    $(this).children('.vjs-menu-item-text').text(properQualityValue);
+                }
+            })
+        });
+    }
+}
+
+function createQualitySelectButton() {
+    $('<ul>').css('border-top', '1px white solid')
+        .addClass('vjs-menu-content custom-quality-selector')
+        .appendTo('.list-wrapper');
+
+    $('<li>')
+        .css({
+            cursor: 'pointer',
+            display: 'flex',
+            justifyContent: 'space-between',
+            padding: '5px 10px 0 10px'
+        })
+        .addClass('vjs-menu-title')
+        .appendTo('.custom-quality-selector');
+
+    $('<div>').text('Quality')
+        .appendTo('.custom-quality-selector .vjs-menu-title');
+
+    $('<div>').text('Auto')
+        .addClass('quality-value')
+        .appendTo('.custom-quality-selector .vjs-menu-title');
+}
+
+function createListWrapper() {
+    let div = document.createElement('div');
+    $(div).addClass('list-wrapper')
+        .css({position: 'absolute', width: '100%', bottom: '1.5em'});
+
+    return div;
+}
+
+function createTitleElement() {
+    let expanded = true;
+    let li = document.createElement('li');
+    $(li).addClass('vjs-menu-title')
+        .css({margin: 0, cursor: 'pointer'});
+
+    let titleDiv = document.createElement('div');
+    $(titleDiv).css({
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: '5px 10px 0 10px'
+    });
+
+    let textDiv = document.createElement('div');
+    $(textDiv).html('Speed');
+
+    let playbackRateDiv = document.createElement('div');
+    $(playbackRateDiv).addClass('playback-rate-value')
+        .html($('.vjs-playback-rate-value').text());
+
+    $(titleDiv).append(textDiv).append(playbackRateDiv);
+
+    $(li).append(titleDiv)
+        .click(toggleSpeedSection);
+
+    return li;
+}
+
+function createButton() {
+    let wrapper = document.createElement('div');
+    let button = document.createElement('button');
+
+    let span = document.createElement('span');
+    $(span).addClass('vjs-icon-placeholder vjs-icon-hd');
+
+    $(button).addClass('vjs-menu-button vjs-menu-button-popup')
+        .css({
+            backgroundColor: $('.vjs-duration').css('background-color'),
+            width: '100%',
+            height: '100%'
+        })
+        .append(span);
+
+    let menuWrapper = document.createElement('div');
+    $(menuWrapper).addClass('vjs-menu')
+        .append(createListWrapper());
+
+    $(wrapper)
+        .addClass('vjs-control vjs-button vjs-menu-button-popup vjs-custom-settings-control')
+        .append(button)
+        .append(menuWrapper)
+        .on('mouseenter mouseleave', function() {
+            $(this).toggleClass('vjs-hover');
+        });
+
+    return wrapper;
+};
+
+function toggleQualitySection() {
+    displayedQualitySection = !displayedQualitySection;
+    let state = displayedQualitySection ? 'block' : 'none';
+    $('.custom-quality-selector li.vjs-menu-item').css('display', state);
+
+    if ($('.custom-playback-speed').length > 0 && displayedQualitySection) {
+        displayedSpeedSection = false;
+        $('.custom-playback-speed li.vjs-menu-item').hide();
+    }
+}
+
+function toggleSpeedSection() {
+    displayedSpeedSection = !displayedSpeedSection;
+    let state = displayedSpeedSection ? 'block' : 'none';
+    $('.custom-playback-speed li.vjs-menu-item').css('display', state);
+
+    if ($('.custom-quality-selector').length > 0 && displayedQualitySection) {
+        displayedQualitySection = false;
+        $('.custom-quality-selector li.vjs-menu-item').hide();
+    }
+}
+
+function insertAfter(newEl, element) {
+    element.parentNode.insertBefore(newEl, element.nextSibling);
+};
+
+videojs.registerPlugin('populatePlaybackSpeedSettings', populatePlaybackSpeedSettings);
+videojs.registerPlugin('populateQualitySettings', populateQualitySettings);

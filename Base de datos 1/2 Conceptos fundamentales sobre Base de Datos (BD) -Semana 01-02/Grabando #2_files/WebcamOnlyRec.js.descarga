@@ -1,0 +1,1 @@
+'use strict';self.WebcamOnlyRec=function(){let a={};const c=OffscreenProxy.for("WebcamOnlyRec").connect(a);a.start=function(b,d){return navigator.mediaDevices.getUserMedia({audio:b,video:d}).then(e=>a.realStream=e)};a.getOffscreenStream=()=>a.realStream;c.listen("start",b=>a.start(b.audioConstraint,b.videoConstraint));return a}();

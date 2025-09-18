@@ -1,0 +1,207 @@
+a.som-link {
+    position: absolute;
+}
+
+a.som-link svg {
+    width: 20px;
+}
+
+.som-pip-frame-container {
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
+}
+
+.som-pip-frame {
+    border: 0;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.som-pip-frame-container-move {
+    cursor: move;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.som-pip-frame-container-resize-nw,
+.som-pip-frame-container-resize-ne,
+.som-pip-frame-container-resize-sw,
+.som-pip-frame-container-resize-se
+{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
+
+.som-pip-frame-container-resize-n,
+.som-pip-frame-container-resize-s
+{
+    position: absolute;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 10px;
+}
+
+.som-pip-frame-container-resize-w,
+.som-pip-frame-container-resize-e
+{
+    position: absolute;
+    top: 10px;
+    height: calc(100% - 20px);
+    width: 10px;
+}
+
+.som-pip-frame-container-resize-nw {
+    cursor: nw-resize;
+    top: 0;
+    left: 0;
+}
+
+.som-pip-frame-container-resize-ne {
+    cursor: ne-resize;
+    top: 0;
+    right: 0;
+}
+
+.som-pip-frame-container-resize-sw {
+    cursor: sw-resize;
+    bottom: 0;
+    left: 0;
+}
+
+.som-pip-frame-container-resize-se {
+    cursor: se-resize;
+    bottom: 0;
+    right: 0;
+}
+
+.som-pip-frame-container-resize-n {
+    cursor: n-resize;
+    top: 0;
+}
+
+.som-pip-frame-container-resize-s {
+    cursor: s-resize;
+    bottom: 0;
+}
+
+.som-pip-frame-container-resize-w {
+    cursor: w-resize;
+    left: 0;
+}
+
+.som-pip-frame-container-resize-e {
+    cursor: e-resize;
+    right: 0;
+}
+
+.big .som-pip-frame-container-move,
+.big .som-pip-frame-container-resize-nw,
+.big .som-pip-frame-container-resize-ne,
+.big .som-pip-frame-container-resize-sw,
+.big .som-pip-frame-container-resize-se,
+.big .som-pip-frame-container-resize-n,
+.big .som-pip-frame-container-resize-s,
+.big .som-pip-frame-container-resize-w,
+.big .som-pip-frame-container-resize-e
+{
+   cursor: default !important;
+}
+
+.som-pip-frame-only-camera-msg {
+    display:none;
+}
+
+.big-forced .som-pip-frame-only-camera-msg {
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 18px;
+    display: block;
+    -webkit-user-select: none;
+}
+
+.som-pip-frame-toggle-button {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    bottom: 10px;
+    right:10px;
+    border:0;
+    padding:1px 0 0 1px;
+    margin:0;
+    transition: 500ms;
+}
+
+.big-forced .som-pip-frame-toggle-button {
+    display: none;
+}
+
+.som-pop-frame-toggle-dim {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.som-replace-thumbnail-frame {
+    padding: 0 !important;
+    margin:0 !important;
+    border: 0 !important;
+    border-radius: 5px;
+}
+
+.som-flyout-banner {
+    background: transparent;
+    border-radius: 10px;
+    position: fixed;
+    display: block;
+    border: 0;
+    box-shadow: rgb(14 30 37 / 12%) 0px 2px 4px 0px, rgb(14 30 37 / 32%) 0px 2px 16px 0px;
+    transition: 500ms;
+}
+
+.som-whiteboard-msg {
+    position: fixed;
+    top: 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 22px;
+}
+
+.som-whiteboard-div {
+    border-radius: 10px;
+    background: white;
+}
+
+.som-effects-frame.toggling-fade-out,
+.som-effects-frame.toggling-fade-in.toggling-fade-out {
+    transition: 1000ms;
+    opacity: 0 !important;
+}
+
+.som-effects-frame.toggling-fade-in {
+    transition: 1000ms;
+    opacity: 1.0 !important;
+}
+
+.som-effects-frame.toggling-slide-out-down {
+    transition: 1000ms;
+    margin-top: 1280px;
+}
+
+.som-effects-frame.toggling-slide-in-down,
+.som-effects-frame.toggling-slide-in-up
+{
+    transition: 1000ms;
+    top:0 !important;
+}

@@ -1,0 +1,310 @@
+@charset "UTF-8";
+
+@import url("./sp-typography.css");
+@import url("./sp-theme.css");
+
+.alert-success {
+    z-index: 5;
+    display: none;
+}
+
+.dark-text li a {
+    color: #000 !important;
+}
+
+.dark-text li a:hover {
+    color: #000 !important;
+}
+
+.centeredPasswordForm {
+    width:75%;
+    padding-left:25%;
+}
+
+.close-right {
+    position: absolute !important;
+    right: 10px !important;
+}
+
+.embed-som-top {
+    height: 100%;
+}
+
+.fas {
+    margin-right:10px;
+    width: 15px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+html, body, .video-js {
+    font-family: var(--font-family-base);
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+.image-branding-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+img.image-branding {
+    width: 100px;
+    aspect-ratio: 1/1;
+    margin: 15px;
+    object-fit: contain;
+    z-index: 0;
+}
+
+.modal-header {
+    border:0 !important;
+}
+
+.menuOptions {
+    background-color: rgba(84, 159, 215);
+    position: absolute;
+    color: hsl(0, 0%, 100%);
+    z-index: 3;
+    display: none;
+    overflow-y: auto;
+}
+
+.menuOptionsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #FFF;
+    font-size: 1rem;
+    line-height: 28px;
+}
+
+.menuLink {
+    text-decoration: none;
+    color: #FFF !important;
+    display: flex;
+    align-items: center;
+}
+
+.menuLink svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.menuLink:hover {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.noContent {
+    position: absolute !important;
+    top: 15%;
+    left: 20%;
+    width: 60%;
+}
+
+.noContentIcon {
+    width: 20%;
+}
+
+.noContentLine1 {
+    color: #d5518b;
+    font-size: 2.3vw;
+}
+
+.noContentLine2 {
+    font-size: 1.35vw;
+    color: #6c6b6b;
+    margin-top: 4rem;
+}
+
+.noContentLine2 p {
+    margin-top: 2rem;
+}
+.noContentLine2 a {
+    color: #0c44bc !important;
+}
+
+.no-content-button {
+    cursor: pointer;
+    font-size: 1.2vw !important;
+    font-weight: var(--font-weight-medium);
+    margin-top: 1.5rem;
+    width: 11vw;
+    border-radius: 32px !important;
+}
+
+.no-content-line-one {
+    font-size: 1.9vw;
+    font-weight: var(--font-weight-medium);
+}
+
+.no-content-line-two {
+    font-size: 1.35vw;
+    margin-top: 4rem;
+
+}
+
+.no-content-line-two p {
+    margin-top: 2rem;
+}
+
+.no-content-line-two a {
+    font-weight: var(--font-weight-regular);
+}
+
+.overlay {
+    z-index: 3 !important;
+    position: fixed;
+    left: 10%;
+    right: 10%;
+    color: #FFF;
+    font-size: 23px;
+    text-decoration: none;
+    cursor: pointer;
+    height: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.overlay-background {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: calc(100% - 75px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.overlayTitle{
+    font-size:2.5vw;
+    max-width: 80%;
+    word-break: break-word;
+}
+
+.overlayPublished{
+    font-size:1.7vw;
+    padding-bottom:15px;
+}
+
+ .overlayDescription {
+    max-width: 80%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+.password-page-text {
+    padding-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.playButton {
+    margin-top: 3.0vw;
+    padding: 25px;
+    border-radius: 25px;
+    height: 24px;
+    width: 27px;
+    background-color: #FFF;
+    cursor: pointer;
+    border: none;
+}
+
+.playButton:hover{
+  background-color: rgba(255,255,255, 0.7);
+}
+
+#player-transcoding-spinner {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    color: #6e7275;
+    width: 100%;
+    height: 100%;
+}
+
+.shareButton {
+  background-color: #FFF;
+}
+
+.shareButton:hover{
+  background-color: rgba(255,255,255, 0.7);
+}
+
+.screenshot {
+    position: absolute;
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url("../images/checkerboard.svg");
+}
+
+.shareButton {
+    margin-top:3.0vw;
+    padding:25px;
+    border-radius: 25px;
+    height: 24px;
+    width: 27px;
+    cursor: pointer;
+}
+
+.transcoding-message-title {
+    font-size: var(--text-size-2xl);
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.transcoding-message {
+    font-size: var(--text-size-lg);
+    font-weight: var(--font-weight-light);
+}
+
+.video-js.vjs-skin-som.vjs-paused {
+    display:block !important;
+}
+
+.vjs-big-play-button {
+    display: none !important;
+}
+
+.vjs-control-bar {
+    display: inline-flex !important;
+    z-index: 3 !important;
+}
+
+.vjs-menu .vjs-menu-content {
+    font-family: var(--font-family-base);
+}
+
+.vjs-modal-dialog.vjs-text-track-settings {
+    z-index: 4;
+}
+
+@media only screen and (max-width: 600px) {
+    .password-page-text {
+      font-size: 17px;
+    }
+    .centeredPasswordForm {
+      width: 90%;
+      text-align: center;
+      padding-left: 20%;
+    }
+  }

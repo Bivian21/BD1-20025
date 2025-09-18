@@ -1,0 +1,880 @@
+:root, [data-theme="dark"] {
+    /* ScreenPal Brand Blue & variants */
+    --sp-brand-blue-h: 232;
+    --sp-brand-blue: hsl(232 21% 39%);      /* #4E5377 */
+    --sp-brand-blue-950: hsl(232 48% 3%);   /* #04050B */
+    --sp-brand-blue-900: hsl(232 46% 10%);  /* #0E1126 */
+    --sp-brand-blue-800: hsl(232 44% 17%);  /* #181D3D */
+    --sp-brand-blue-700: hsl(232 41% 23%);  /* #222851 */
+    --sp-brand-blue-600: hsl(232 32% 33%);  /* #3A4070 */
+    --sp-brand-blue-500: hsl(232 21% 39%);  /* #4E5377 */
+    --sp-brand-blue-400: hsl(232 26% 41%);  /* #4D5382 */
+    --sp-brand-blue-300: hsl(232 43% 79%);  /* #B4BAE1 */
+    --sp-brand-blue-200: hsl(232 100% 91%); /* #D0D6FF */
+    --sp-brand-blue-100: hsl(232 23% 85%);  /* #D0D3E2 */
+    --sp-brand-blue-50: hsl(232 21% 92%);   /* #E6E7EF */
+
+    /* Blues */
+    --sp-blue: hsl(207 100% 57%);     /* #239DFF */
+    --sp-blue-950: hsl(207 73% 3%);   /* #02080D */
+    --sp-blue-900: hsl(207 73% 6%);   /* #04101A */
+    --sp-blue-800: hsl(207 75% 17%);  /* #0B2F4C */
+    --sp-blue-700: hsl(207 75% 29%);  /* #124F81 */
+    --sp-blue-600: hsl(207 75% 43%);  /* #1B76C0 */
+    --sp-blue-500: hsl(207 100% 57%); /* #239DFF */
+    --sp-blue-400: hsl(217 100% 80%); /* #97BFFF */
+    --sp-blue-300: hsl(217 100% 87%); /* #BDD6FF */
+    --sp-blue-200: hsl(217 100% 91%); /* #D1E3FF */
+    --sp-blue-100: hsl(217 100% 95%); /* #E6EFFF */
+    --sp-blue-50: hsl(217 100% 97%);  /* #F0F6FF */
+
+    /* Blues with opacity */
+    --sp-blue-500-op-20: hsl(207 100% 57% / 0.2); /* #239DFF @ 20% opacity */
+
+    /* Grays */
+    --sp-gray: hsl(227 4% 53%);     /* #82848C */
+    --sp-gray-950: hsl(216 6% 9%);  /* #161718 */
+    --sp-gray-900: hsl(220 6% 16%); /* #26282b */
+    --sp-gray-800: hsl(222 6% 23%); /* #37393E */
+    --sp-gray-700: hsl(222 5% 32%); /* #4E5056 */
+    --sp-gray-600: hsl(226 5% 40%); /* #61636B */
+    --sp-gray-500: hsl(227 4% 53%); /* #7E8291 */
+    --sp-gray-400: hsl(229 4% 63%); /* #9D9EA4 */
+    --sp-gray-300: hsl(231 4% 72%); /* #B5B6BA */
+    --sp-gray-200: hsl(232 3% 83%); /* #D2D3D5 */
+    --sp-gray-100: hsl(234 3% 88%); /* #DFE0E1 */
+    --sp-gray-50: hsl(228 3% 94%);  /* #EFEFF0 */
+
+    /* White & Black */
+    --sp-white: hsl(0 100% 100%); /* #FFFFFF */
+    --sp-black: hsl(0 0% 0%);     /* #000000 */
+
+    /* Purples */
+    --sp-purple: hsl(271 51% 50%);      /* #803EBF */
+    --sp-purple-950: hsl(271 97% 5%);   /* #0D0019 */
+    --sp-purple-900: hsl(271 92% 10%);  /* #1A0231 */
+    --sp-purple-800: hsl(271 85% 20%);  /* #34085E */
+    --sp-purple-700: hsl(271 75% 30%);  /* #4E1386 */
+    --sp-purple-600: hsl(271 63% 40%);  /* #6826A6 */
+    --sp-purple-500: hsl(271 51% 50%);  /* #803EBF */
+    --sp-purple-400: hsl(264 100% 71%); /* #A76DFF */
+    --sp-purple-300: hsl(264 85% 75%);  /* #B489F5 */
+    --sp-purple-200: hsl(264 60% 80%);  /* #C6ADEB */
+    --sp-purple-100: hsl(264 45% 90%);  /* #E3DAF1 */
+    --sp-purple-50: hsl(264 25% 95%);   /* #F2EFF5 */
+
+    /* Pinks */
+    --sp-pink: hsl(334 69% 49%);     /* #D12771 */
+    --sp-pink-600: hsl(334 74% 36%); /* #A01853 */
+    --sp-pink-500: hsl(334 69% 49%); /* #D12771 */
+    --sp-pink-400: hsl(334 82% 63%); /* #EE5397 */
+    --sp-pink-300: hsl(334 60% 48%); /* #A53160 */
+    --sp-pink-200: hsl(332 65% 57%); /* #C03970 */
+
+    /* Pinks with opacity */
+    --sp-pink-500-op-20: hsl(334 69% 49% / 0.2); /* #D12771 @ 20% opacity */
+
+    /* Reds */
+    --sp-red: hsl(355 100% 57%);     /* #FF2438 */
+    --sp-red-950: hsl(355 100% 7%);  /* #240003 */
+    --sp-red-900: hsl(355 100% 17%); /* #570007 */
+    --sp-red-800: hsl(355 100% 27%); /* #8A000B */
+    --sp-red-700: hsl(355 100% 37%); /* #BD0010 */
+    --sp-red-600: hsl(355 100% 47%); /* #F00014 */
+    --sp-red-500: hsl(355 100% 57%); /* #FF2438 */
+    --sp-red-400: hsl(355 100% 72%); /* #FF717E */
+    --sp-red-300: hsl(357 85% 76%);  /* #F68E93 */
+    --sp-red-200: hsl(357 70% 80%);  /* #F0A8AC */
+    --sp-red-100: hsl(357 55% 84%);  /* #EDC0C2 */
+    --sp-red-50: hsl(357 40% 88%);   /* #EDD4D5 */
+    --color-danger-text: var(--sp-red-500);
+    --color-danger-text-hover: var(--sp-red-400);
+    --color-danger-text-active: var(--sp-red-600);
+
+    /* Greens */
+    --sp-green: hsl(137 52% 55%);     /* #53C874 */
+    --sp-green-950: hsl(137 87% 7%);  /* #02210B */
+    --sp-green-900: hsl(137 77% 15%); /* #094419 */
+    --sp-green-800: hsl(137 67% 25%); /* #156A2D */
+    --sp-green-700: hsl(137 62% 35%); /* #229141 */
+    --sp-green-600: hsl(137 57% 45%); /* #31B456 */
+    --sp-green-500: hsl(137 52% 55%); /* #53C874 */
+    --sp-green-400: hsl(137 47% 65%); /* #7CD094 */
+    --sp-green-300: hsl(137 42% 75%); /* #A4DAB4 */
+    --sp-green-200: hsl(137 37% 80%); /* #B9DFC4 */
+    --sp-green-100: hsl(137 32% 84%); /* #C9E3D1 */
+    --sp-green-50: hsl(137 27% 88%);  /* #D8E9DD */
+    --color-success-text: var(--sp-green-600);
+    --color-success-text-hover: var(--sp-green-500);
+    --color-success-text-active: var(--sp-green-700);
+
+    /* Oranges */
+    --sp-orange: hsl(14 85% 57%);      /* #EF6034 */
+    --sp-orange-950: hsl(14 100% 7%);  /* #240800 */
+    --sp-orange-900: hsl(14 100% 17%); /* #571400 */
+    --sp-orange-800: hsl(14 100% 27%); /* #8A2000 */
+    --sp-orange-700: hsl(14 100% 37%); /* #BD2C00 */
+    --sp-orange-600: hsl(14 100% 47%); /* #F03800 */
+    --sp-orange-500: hsl(14 85% 57%);  /* #EF6034 */
+    --sp-orange-400: hsl(14 85% 65%);  /* #F27D5A */
+    --sp-orange-300: hsl(14 85% 76%);  /* #F6A68E */
+    --sp-orange-200: hsl(14 70% 80%);  /* #F0B9A8 */
+    --sp-orange-100: hsl(14 55% 84%);  /* #EDCAC0 */
+    --sp-orange-50: hsl(14 40% 88%);   /* #EDDAD4 */
+    --color-warning-text: var(--sp-orange-500);
+    --color-warning-text-hover: var(--sp-orange-400);
+    --color-warning-text-active: var(--sp-orange-600);
+
+    /* Yellows */
+    --sp-yellow: hsl(44, 100%, 48%);     /* #F7B500 */
+    --sp-yellow-600: hsl(44, 100%, 39%); /* #C79200 */
+    --sp-yellow-500: hsl(44, 100%, 48%); /* #F7B500 */
+    --sp-yellow-400: hsl(44, 88%, 57%);  /* #F2BF33 */
+
+    /* Generic color variables */
+    --color-cta: var(--sp-pink-400);
+    --color-cta-hover: var(--sp-pink-300);
+    --color-cta-active: var(--sp-pink-500);
+    --color-danger: var(--sp-red-500);
+    --color-danger-hover: var(--sp-red-400);
+    --color-danger-active: var(--sp-red-600);
+    --color-info: var(--sp-blue-500);
+    --color-info-hover: var(--sp-blue-400);
+    --color-info-active: var(--sp-blue-600);
+    --color-success: var(--sp-green-600);
+    --color-success-hover: var(--sp-green-500);
+    --color-success-active: var(--sp-green-700);
+    --color-warning: var(--sp-orange-500);
+    --color-warning-hover: var(--sp-orange-400);
+    --color-warning-active: var(--sp-orange-600);
+    --color-draft: var(--sp-gray-400);
+    --color-muted: var(--sp-gray-300);
+
+    /* Input/Control element focus rings */
+    --sp-element-focus-ring-color: hsl(207 100% 57% / 50%);
+
+    --sp-jstree-item-background-color: hsl(206 62% 59% / 6%);
+    --ai-input-border-color: var(--sp-blue-500);
+    --ai-error-border-color: hsl(354, 70%, 54%);
+    --ai-generate-button-default-left: var(--sp-purple-400);
+    --ai-generate-button-default-right: var(--sp-blue-500);
+    --ai-generate-button-hover-left: var(--sp-purple-300);
+    --ai-generate-button-hover-right: var(--sp-blue-400);
+    --ai-generate-button-down-left: var(--sp-purple-500);
+    --ai-generate-button-down-right: var(--sp-blue-600);
+    --ai-generate-button-complete-left: var(--sp-green-700);
+    --ai-generate-button-complete-right: var(--sp-blue-500);
+    --ai-generate-button-error-left: var(--sp-red-800);
+    --ai-generate-button-error-right: var(--sp-red-950);
+    --ai-generate-button-disabled-text: var(--sp-black);
+    --ai-generate-button-disabled-background: var(--sp-gray-500);
+
+    /* Element Colors */
+    --body-background-color: var(--sp-brand-blue-700);
+    --loading-page-background-color: var(--sp-brand-blue-900);
+    --base-text-color: var(--sp-brand-blue-50);
+    --label-text-color: var(--base-text-color);
+    --separator-color: var(--sp-brand-blue-500);
+    --navbar-separator-color: var(--sp-brand-blue-500);
+    --divider-line-color: var(--separator-color);
+    --divider-label-color: var(--sp-brand-blue-300);
+    --stand-alone-page-navbar-background-color: var(--sp-brand-blue-900);
+    --stand-alone-page-background-color: var(--sp-brand-blue-800);
+
+    --scrollbar-background-color: transparent; /* var(--sp-brand-blue-50); */
+    --scrollbar-thumb-color: var(--sp-gray-600);
+    --scrollbar-thumb-color-hover: var(--sp-gray-500);
+    --scrollbar-thumb-color-active: var(--sp-gray-400);
+    --scrollbar-box-shadow: inset 0 0 3px var(--sp-brand-blue-950);
+
+    --select-all-checkbox-label-color: var(--sp-gray-400);
+
+    --select-overlay-background-color: var(--sp-brand-blue-950);
+    --select-overlay-color: var(--sp-brand-blue-50);
+
+    --login-page-background-color: var(--sp-brand-blue-600);
+
+    --primary-nav-background-color: var(--sp-brand-blue-800);
+    --record-response-band-background-color: var(--sp-gray-500);
+    --record-response-band-text: var(--sp-brand-blue-50);
+
+    --heatmap-chart-wrapper-background-color: var(--sp-brand-blue-800);
+    --heatmap-chart-border-bottom-color: var(--sp-gray-600);
+    --heatmap-percentage-background-color: var(--sp-brand-blue-900);
+    --heatmap-percentage-color: var(--sp-brand-blue-50);
+
+    --analytics-tables-button-color: var(--sp-gray-300);
+    --analytics-metric-card-background-color: var(--sp-brand-blue-800);
+    --analytics-metric-title-color: var(--sp-gray-300);
+    --analytics-sort-button-color: var(--sp-gray-300);
+    --analytics-heatmap-chart-default-border-color: var(--sp-brand-blue-800);
+    --analytics-heatmap-chart-data-set-background-color: hsl(137 100% 71% / 33%); /* Requires alpha #19443 */
+    --analytics-heatmap-chart-data-set-border-color: var(--sp-gray-900);
+    --analytics-heatmap-table-thead-border-bottom-color: var(--sp-brand-blue-700);
+    --analytics-heatmap-table-tbody-border-bottom-color: var(--sp-brand-blue-700);
+    --analytics-popover-header-color: var(--sp-brand-blue-700);
+    --analytics-trends-chart-default-background-color: var(--sp-brand-blue-800);
+    --analytics-trends-chart-background-color: var(--sp-brand-blue-800);
+    --analytics-trends-table-label-checkbox-legend-background-color: var(--sp-brand-blue-500);
+    --analytics-trends-table-th-label-background-color: var(--sp-brand-blue-900);
+    --analytics-trends-table-th-label-border-color: var(--sp-brand-blue-900);
+    --analytics-trends-table-th-label-color: var(--sp-brand-blue-50);
+    --analytics-trends-thumbnail-border-color: var(--sp-gray-700);
+    --analytics-trends-table-border-left-color: var(--sp-brand-blue-400);
+    --analytics-trends-table-thead-border-color: var(--sp-brand-blue-400);
+    --analytics-trends-table-thead-border-bottom-color: var(--sp-brand-blue-400);
+    --analytics-trends-table-thead-border-right-color: var(--sp-brand-blue-400);
+    --analytics-trends-table-thead-border-top-color: var(--sp-brand-blue-900);
+    --analytics-trends-table-thead-border-left-color: var(--sp-brand-blue-700);
+    --analytics-trends-table-tbody-border-bottom-color: var(--sp-brand-blue-400);
+    --analytics-trends-table-tbody-border-top-color: var(--sp-brand-blue-900);
+    --analytics-trends-table-tbody-border-right-color: var(--sp-brand-blue-700);
+    --analytics-trends-table-tbody-border-left-color: var(--sp-brand-blue-700);
+    --analytics-trends-chart-default-color: var(--sp-white);
+    --analytics-trends-chart-default-border-color: var(--sp-gray-700);
+
+    --tooltip-arrow-color: var(--sp-brand-blue-600);
+    --tooltip-background-color: var(--sp-brand-blue-600);
+    --tooltip-text-color: var(--sp-brand-blue-50);
+    --tooltip-link-color: var(--sp-white);
+
+    --action-nav-background-color: var(--sp-brand-blue-900);
+    --action-nav-link-text-color: var(--sp-brand-blue-300);
+    --action-nav-link-text-color-hover: var(--sp-brand-blue-200);
+    --action-nav-link-text-color-current: var(--sp-white);
+
+    --sidebar-background-color: var(--sp-brand-blue-800);
+    --sidebar-border-color: var(--sp-brand-blue-400);
+    --sidebar-nav-link-background-color-hover: var(--sp-jstree-item-background-color);
+    --sidebar-nav-link-background-color-selected: var(--sp-jstree-item-background-color);
+    --sidebar-nav-section-title-text-color: var(--sp-gray-300);
+    --sidebar-nav-link-text-color: var(--sp-brand-blue-300);
+    --sidebar-nav-link-text-color-current: var(--sp-white);
+    --sidebar-nav-link-left-border-color-selected: var(--sp-pink-500);
+
+    --nav-tabs-border-color: var(--sp-brand-blue-600);
+    --nav-tab-border-color-current: var(--sp-brand-blue-600);
+    --nav-tab-link-text-color: var(--sp-brand-blue-300);
+    --nav-tab-link-text-color-hover: var(--sp-brand-blue-200);
+    --nav-tab-link-text-color-current: var(--sp-white);
+
+    --breadcrumb-color: var(--sp-blue-500);
+    --breadcrumb-color-hover: var(--sp-blue-400);
+
+    --dropdown-background-color: var(--sp-brand-blue-600);
+    --dropdown-link-text-color: var(--sp-white);
+    --dropdown-link-text-color-active: var(--sp-black);
+    --dropdown-link-text-color-focus: hsl(232 0% 90%);
+    --dropdown-link-text-color-hover: hsl(232 0% 90%);
+    --dropdown-link-text-color-disabled: hsl(232 0% 80%);
+    --dropdown-link-background-color-active: hsl(232 0% 90%);
+    --dropdown-link-background-color-focus: var(--sp-brand-blue-400); /* hsl(232 26% 51%); */
+    --dropdown-link-background-color-hover: var(--sp-brand-blue-400); /* hsl(232 26% 51%); */
+    --dropdown-link-background-color-disabled: transparent;
+    --dropdown-qr-code-background-color: var(--sp-brand-blue-500);
+
+    --select-box-background-color: var(--sp-brand-blue-800);
+    --select-box-item-text-color: var(--sp-white);
+    --select-box-item-background-color: var(--sp-brand-blue-800);
+    --select-box-item-background-color-hover: var(--sp-brand-blue-700);
+    --select-box-item-background-color-selected: var(--sp-brand-blue-600);
+    --selected-media-action-buttons-wrapper-bg: var(--sp-brand-blue-700);
+    --selected-media-options-wrapper-bg: var(--sp-brand-blue-800);
+
+    --select-box-multiple-background-color: transparent;
+    --select-box-multiple-item-text-color: var(--sp-white);
+    --select-box-multiple-item-background-color: transparent;
+    --select-box-multiple-item-background-color-hover: var(--sp-brand-blue-600);
+    --select-box-multiple-item-background-color-selected: var(--sp-brand-blue-500);
+    --select-box-multiple-item-background-color-selected-hover: var(--sp-brand-blue-400);
+
+    --select-block-item-lms-disabled: var(--sp-gray-600);
+
+    --popup-form-text-color: var(--base-text-color);
+    --popup-form-background-color: var(--sp-brand-blue-800);
+    --popup-form-border-color: var(--separator-color);
+
+    --channel-consumption-border-color: var(--separator-color);
+    --channel-consumption-box-content-border-color: var(--separator-color);
+
+    --counter-component-border-color: var(--sp-brand-blue-300);
+    --counter-component-input-background-color: var(--sp-brand-blue-600);
+    --counter-component-input-text-color: var(--sp-white);
+    --counter-component-input-background-color-focus: var(--sp-brand-blue-600);
+    --counter-component-input-text-color-focus: var(--sp-white);
+    --counter-component-button-background-color: var(--sp-brand-blue-300);
+    --counter-component-button-text-color: var(--sp-brand-blue-900);
+    --counter-component-button-background-color-hover: var(--sp-brand-blue-400);
+
+    --tab-button-link-text-color: var(--base-text-color);
+    --tab-button-link-text-color-hover: var(--sp-white);
+    --tab-button-link-text-color-focus: var(--sp-white);
+    --tab-button-link-text-color-active: var(--sp-white);
+
+    --password-page-text-color: var(--sp-white);
+
+    --popover-background-color: var(--sp-brand-blue-600);
+    --popover-arrow-border-color: var(--sp-brand-blue-600);
+    --popover-text-color: var(--base-text-color);
+
+    --modal-background-color: var(--sp-brand-blue-700);
+    --modal-text-color: var(--base-text-color);
+    --modal-header-background-color: transparent;
+    --modal-title-color: var(--base-text-color);
+    --modal-nav-link-background-color-hover: var(--sp-brand-blue-500);
+    --modal-nav-link-background-color-selected: var(--sp-brand-blue-600);
+    --modal-nav-link-left-border-color-selected: var(--sp-pink-500);
+
+    --modify-plan-card-body-backgroud-color: var(--sp-brand-blue-800);
+
+    --solo-deluxe-card-color: var(--sp-purple);
+    --solo-deluxe-card-hover-color: var(--sp-purple);
+    --solo-deluxe-card-title-color: var(--sp-purple-400);
+    --solo-deluxe-card-footer-color: var(--sp-purple);
+
+    --solo-premier-card-color: var(--sp-pink);
+    --solo-premier-card-discount-flag-background-color: var(--sp-pink);
+    --solo-premier-card-discount-flag-text-color: var(--base-text-color);
+    --solo-premier-card-hover-color: var(--sp-pink);
+    --solo-premier-card-title-color: var(--sp-pink-400);
+    --solo-premier-card-footer-color: var(--sp-pink);
+
+    --solo-max-card-color: var(--sp-blue);
+    --solo-max-card-discount-flag-background-color: var(--sp-blue);
+    --solo-max-card-discount-flag-text-color: var(--base-text-color);
+    --solo-max-card-hover-color: var(--sp-blue);
+    --solo-max-card-title-color: var(--sp-blue-400);
+    --solo-max-card-footer-color: var(--sp-blue);
+
+    --team-current-plan-card-color: var(--sp-blue);
+    --team-current-plan-card-hover-color: var(--sp-blue);
+    --team-current-plan-card-title-color: var(--sp-blue-400);
+    --team-upgrade-plan-card-color: var(--sp-pink);
+    --team-upgrade-plan-card-hover-color: var(--sp-pink);
+    --team-upgrade-plan-card-title-color: var(--sp-pink-400);
+    --team-upgrade-plan-card-discount-flag-background-color: var(--sp-pink);
+    --team-upgrade-plan-card-discount-flag-text-color: var(--base-text-color);
+
+    --team-plan-modify-card-color: var(--sp-brand-blue);
+    --team-plan-modify-card-title-color: var(--sp-brand-blue-400);
+    --team-modify-plan-card-discount-flag-background-color: var(--sp-brand-blue);
+    --team-modify-plan-card-discount-flag-text-color: var(--base-text-color);
+
+    --user-circle-background-color: var(--sp-brand-blue-200);
+    --user-circle-text-color: var(--sp-brand-blue-950);
+    --user-circle-border-color: var(--sp-gray-500);
+    --user-circle-hover-background-color: var(--sp-brand-blue-300);
+    --user-circle-image-background-color: transparent;
+    --user-circle-image-hover-background-color: var(--sp-brand-blue-700);
+
+    --content-details-form-background-color: var(--sp-brand-blue-800);
+
+    --child-menu-background-color: var(--sp-brand-blue-800);
+
+    --edit-quiz-questions-container-background-color: var(--sp-brand-blue-800);
+    --edit-quiz-questions-header-background-color: var(--sp-brand-blue-900);
+    --edit-quiz-summary-container-background-color: var(--sp-brand-blue-400);
+    --edit-quiz-summary-chart-default-text-color: var(--sp-brand-blue-50);
+    --edit-quiz-summary-header-background-color: var(--sp-brand-blue-800);
+    --edit-quiz-summary-header-border-color: var(--sp-brand-blue-800);
+    --edit-quiz-summary-question-container-border-color: var(--sp-brand-blue-300);
+
+    --player-spinner-background-color: var(--sp-brand-blue-800);
+
+    --no-content-line-one-color: var(--sp-pink-400);
+    --no-content-line-two-color: var(--sp-white);
+    --no-content-line-two-link-color: var(--sp-white);
+
+    /* Button colors */
+    --color-primary: var(--sp-brand-blue-400);
+    --color-primary-background: var(--color-primary);
+    --color-primary-border: var(--sp-brand-blue-400);
+    --color-primary-box-shadow: unset;
+    --color-primary-text: var(--sp-brand-blue-50);
+    --color-primary-hover: var(--sp-brand-blue-300);
+    --color-primary-background-hover: var(--color-primary-hover);
+    --color-primary-border-hover: var(--color-primary-hover);
+    --color-primary-box-shadow-hover: hsl(var(--sp-brand-blue-h) 99% 68% / 50%);
+    --color-primary-text-hover: var(--sp-brand-blue-500); /* var(--sp-brand-blue-950); */
+    --color-primary-focus: var(--sp-brand-blue-600);
+    --color-primary-background-focus: var(--color-primary-focus);
+    --color-primary-border-focus: var(--color-primary-focus);
+    --color-primary-box-shadow-focus: hsl(var(--sp-brand-blue-h) 99% 68% / 50%);
+    --color-primary-text-focus: var(--sp-brand-blue-50);
+    --color-primary-active: var(--sp-brand-blue-600);
+    --color-primary-background-active: var(--color-primary-active);
+    --color-primary-border-active: var(--color-primary-active);
+    --color-primary-box-shadow-active: hsl(var(--sp-brand-blue-h) 99% 68% / 50%);
+    --color-primary-text-active: var(--sp-brand-blue-50);
+    --color-primary-disabled: hsl(232 10% 41%);
+    --color-primary-background-disabled: var(--color-primary-disabled);
+    --color-primary-border-disabled: var(--color-primary-disabled);
+    --color-primary-box-shadow-disabled: unset;
+    --color-primary-text-disabled: var(--sp-gray-400);
+
+    --color-primary-outline: var(--sp-brand-blue-50);
+    --color-primary-outline-background: transparent;
+    --color-primary-outline-border: hsl(232 10% 40%);
+    --color-primary-outline-box-shadow: unset;
+    --color-primary-outline-text: var(--color-primary-outline);
+    --color-primary-outline-hover: var(--sp-brand-blue-50);
+    --color-primary-outline-background-hover: hsl(232 32% 33%);
+    --color-primary-outline-border-hover: hsl(232 10% 40%);
+    --color-primary-outline-box-shadow-hover: unset;
+    --color-primary-outline-text-hover: var(--color-primary-outline-hover);
+    --color-primary-outline-focus: var(--sp-brand-blue-50);
+    --color-primary-outline-background-focus: hsl(232 32% 33%);
+    --color-primary-outline-border-focus: hsl(232 10% 40%);
+    --color-primary-outline-box-shadow-focus: unset;
+    --color-primary-outline-text-focus: var(--color-primary-outline-focus);
+    --color-primary-outline-active: var(--sp-brand-blue-50);
+    --color-primary-outline-background-active: hsl(232 32% 33%);
+    --color-primary-outline-border-active: hsl(232 10% 40%);
+    --color-primary-outline-box-shadow-active: unset;
+    --color-primary-outline-text-active: var(--color-primary-outline-active);
+    --color-primary-outline-disabled: var(--sp-gray-100);
+    --color-primary-outline-background-disabled: hsl(232 12% 53%);
+    --color-primary-outline-border-disabled: hsl(232 10% 40%);
+    --color-primary-outline-box-shadow-disabled: unset;
+    --color-primary-outline-text-disabled: var(--color-primary-outline-disabled);
+
+    --color-secondary: var(--sp-brand-blue-100);
+    --color-secondary-background: var(--color-secondary);
+    --color-secondary-border: var(--color-secondary-background);
+    --color-secondary-box-shadow: unset;
+    --color-secondary-text: var(--sp-brand-blue-900);
+    --color-secondary-hover: var(--sp-brand-blue-300);
+    --color-secondary-background-hover: var(--color-secondary-hover);
+    --color-secondary-border-hover: var(--color-secondary-background-hover);
+    --color-secondary-box-shadow-hover: hsl(232 17% 90% / 50%);
+    --color-secondary-text-hover: var(--sp-brand-blue-900);
+    --color-secondary-focus: var(--sp-brand-blue-300);
+    --color-secondary-background-focus: var(--color-secondary-focus);
+    --color-secondary-border-focus: var(--color-secondary-background-focus);
+    --color-secondary-box-shadow-focus: hsl(232 17% 90% / 50%);
+    --color-secondary-text-focus: var(--sp-brand-blue-900);
+    --color-secondary-active: var(--sp-brand-blue-400);
+    --color-secondary-background-active: var(--color-secondary-active);
+    --color-secondary-border-active: var(--color-secondary-background-active);
+    --color-secondary-box-shadow-active: hsl(232 17% 85% / 50%);
+    --color-secondary-text-active: var(--sp-white);
+    --color-secondary-disabled: var(--sp-gray-500);
+    --color-secondary-background-disabled: var(--color-secondary-disabled);
+    --color-secondary-border-disabled: var(--color-secondary-background-disabled);
+    --color-secondary-box-shadow-disabled: unset;
+    --color-secondary-text-disabled: var(--sp-gray-200);
+
+    --create-menu-background-color: hsl(232,44%,17%);
+    --create-menu-header-background-color: var(--sp-brand-blue-900);
+    --create-menu-border-color: var(--sp-brand-blue-600);
+    --create-menu-button-border-color: var(--sp-pink-500);
+    --create-menu-button-color: var(--sp-pink-500);
+    --create-menu-header-border-color: var(--sp-pink-500);
+    --create-menu-button-clicked-color: hsl(230,44%,11%);
+    --create-menu-text-color: var(--base-text-color);
+    --create-menu-button-arrow-clicked-color: var(--sp-pink-500);
+
+    --link-text-color: var(--base-text-color);
+    --link-text-color-active: var(--sp-brand-blue-300);
+    --link-text-color-focus: var(--sp-brand-blue-300);
+    --link-text-color-hover: var(--sp-brand-blue-300);
+    --link-text-color-disabled: var(--sp-gray-400);
+
+    --form-control-background-color: transparent;
+    --form-control-color: var(--base-text-color);
+    --form-control-border-color: hsl(232, 10%, 40%);
+    --form-control-background-color-focus: hsl(232 41% 23%);
+    --form-control-border-color-focus: hsl(232 10% 60%);
+    --form-control-box-shadow-color-focus: hsla(232 10% 60% / 25%);
+    --form-control-color-focus: var(--base-text-color);
+    --form-control-background-color-disabled: hsl(232 0% 100% / 5%);
+    --form-control-color-disabled: hsl(232 0% 80%);
+    --form-control-border-color-error: var(--sp-red-400);
+    --form-control-placeholder-color: hsl(232 0% 50%);
+    --form-control-background-color-modal: var(--sp-brand-blue-600);
+
+    --datepicker-arrows-color: var(--base-text-color);
+    --datepicker-background-color: var(--sp-brand-blue-800);
+    --datepicker-disabled-text-color: var(--sp-gray-600);
+    --datepicker-item-hover-color: var(--sp-brand-blue-600);
+    --datepicker-outline-color: hsl(232, 10%, 40%);
+    --datepicker-text-color: var(--base-text-color);
+    --datepicker-today-background-color: var(--sp-brand-blue-600);
+    --datepicker-calendar-button-color: var(--sp-blue-500);
+
+    --checkbox-color: var(--sp-gray-300);
+    --checkbox-color-checked: var(--sp-green-500);
+    --checkbox-color-disabled: var(--sp-gray-300);
+    --checkbox-background-color:  var(--sp-white);
+    --checkbox-background-color-checked: var(--sp-white);
+    --checkbox-background-color-disabled: var(--sp-gray-500) hsl(232 0% 46%);
+
+    --recorder-buttons-background-color: var(--sp-brand-blue-800);
+    --recorder-buttons-text-color: var(--sp-white);
+    --question-block-background-color: var(--sp-brand-blue-600);
+    --question-plus-background-color: var(--sp-brand-blue-700);
+    --question-plus-icon-color: var(--sp-white);
+
+    --table-background-color: var(--sp-brand-blue-800);
+    --table-row-background-color: var(--sp-brand-blue-800);
+    --table-row-bakground-color-hover: var(--sp-brand-blue-600);
+    --table-header-row-background-color: var(--body-background-color);
+    --table-header-row-color: var(--sp-brand-blue-100);
+    --table-cell-color: var(--sp-white);
+    --table-cell-link-color: hsl(217 100% 80%);
+    --table-cell-link-color-hover: hsl(217 100% 85%);
+    --table-selectable-selected-row-background-color: var(--sp-brand-blue-800);
+    --table-selectable-selected-row-text-color: var(--sp-white);
+    --table-selectable-selected-row-background-color-hover: var(--sp-brand-blue-700);
+    --table-light-background-color: var(--sp-brand-blue-600);
+    --table-light-row-background-color: var(--sp-brand-blue-600);
+    --table-light-row-bakground-color-hover: var(--sp-brand-blue-700);
+    --table-transparent-background-color: transparent;
+    --table-transparent-row-background-color: transparent;
+    --table-transparent-row-bakground-color-hover: transparent;
+    --bulk-import-table-background-color: var(--body-background-color);
+
+    --tabs-tab-gradient: linear-gradient(hsl(232 36% 13%), hsl(232 34% 15%));
+    --tabs-tab-background-color: var(--sp-brand-blue-800);
+    --tabs-tab-color: var(--base-text-color);
+    --tabs-tab-border-right-color: var(--sp-brand-blue-900);
+    --tabs-tab-selected-background-color: var(--sp-brand-blue-700);
+    --tabs-tab-selected-color: var(--sp-white);
+    --tabs-tab-selected-border-bottom-color: var(--sp-brand-blue-700);
+    --tabs-tab-background-color-hover: var(--sp-brand-blue-900);
+    --tabs-tab-color-hover: var(--base-text-color);
+
+    --select-background-color: transparent;
+    --select-text-color: var(--base-text-color);
+    --select-option-background-color: var(--sp-brand-blue-700);
+
+    --flatpickr-input-background-color: var(--sp-brand-blue-800);
+
+    --select-picker-item-background-color: transparent;
+    --select-picker-item-border-color: hsl(232 10% 40%);
+    --select-picker-item-color: var(--base-text-color);
+    --select-picker-item-background-color-selected: transparent;
+    --select-picker-item-border-color-selected: var(--sp-green);
+    --select-picker-item-color-selected: var(--base-text-color);
+    --select-picker-item-background-color-disabled: hsl(0 0% 93%);
+    --select-picker-item-border-color-disabled: hsl(0 0% 87%);
+    --select-picker-item-color-disabled: var(--base-text-color);
+
+    --select-picker-select-image-background-color: transparent;
+    --select-picker-select-image-border-color: hsl(232 10% 40%);
+    --select-picker-select-image-background-color-selected: transparent;
+    --select-picker-select-image-border-color-selected: var(--sp-green);
+
+    --side-section-border-color: var(--sp-brand-blue-900);
+
+    --media-card-border-color: hsl(232 0% 52% / 24%);
+    --media-card-box-shadow-color-hover: var(--sp-gray-400);
+    --media-card-body-background-color: var(--sp-brand-blue-800);
+    --media-card-link-color: var(--base-text-color);
+    --media-card-link-color-hover: var(--base-text-color);
+    --media-card-thumbnail-overlay-color: var(--sp-brand-blue-900);
+    --media-card-overlay-color: var(--sp-white);
+
+    --info-card-background-color: var(--sp-brand-blue-800);
+    --info-card-link-color: var(--base-text-color);
+    --info-card-link-color-hover: var(--base-text-color);
+
+    --color-button-checkbox-background: var(--color-secondary-background);
+    --color-button-checkbox-border: var(--color-secondary-border);
+    --color-button-checkbox-text: var(--color-secondary-text);
+    --color-button-checkbox-background-hover: var(--color-secondary-background-hover);
+    --color-button-checkbox-border-hover: var(--color-secondary-border-hover);
+    --color-button-checkbox-text-hover: var(--color-secondary-text-hover);
+    --color-button-checkbox-background-checked: var(--sp-purple-600);
+    --color-button-checkbox-border-checked: var(--sp-purple-600);
+    --color-button-checkbox-text-checked: var(--sp-purple-50);
+    --color-button-checkbox-background-checked-hover: var(--sp-purple-500);
+    --color-button-checkbox-border-checked-hover: var(--sp-purple-500);
+    --color-button-checkbox-text-checked-hover: var(--sp-purple-100);
+
+    --toggle-button-background-color-off: transparent;
+    --toggle-button-border-color-off: var(--form-control-border-color);
+    --toggle-button-text-color-off: var(--sp-white);
+    --toggle-button-background-color-off-hover: transparent;
+    --toggle-button-border-color-off-hover: var(--form-control-border-color);
+    --toggle-button-background-color-off-active: transparent; /* var(--color-secondary-background-active); */
+    --toggle-button-border-color-off-active: var(--form-control-border-color); /* var(--color-secondary-border-active); */
+    --toggle-button-background-color-off-focus: transparent; /* var(--color-secondary-background-focus); */
+    --toggle-button-border-color-off-focus: var(--form-control-border-color); /* var(--color-secondary-border-focus); */
+    --toggle-button-background-color-off-disabled: var(--sp-gray-600);
+    --toggle-button-border-color-off-disabled: var(--sp-gray-600);
+    --toggle-button-text-color-off-disabled: var(--sp-gray-800);
+
+    --toggle-button-background-color-on: var(--sp-green-500);
+    --toggle-button-border-color-on: var(--sp-green-500);
+    --toggle-button-text-color-on: var(--sp-brand-blue-950);
+    --toggle-button-background-color-on-hover: var(--sp-green-400);
+    --toggle-button-border-color-on-hover: var(--sp-green-400);
+    --toggle-button-background-color-on-active: var(--sp-green-400);
+    --toggle-button-border-color-on-active: var(--sp-green-400);
+    --toggle-button-background-color-on-focus: var(--sp-green-400);
+    --toggle-button-border-color-on-focus: var(--sp-green-400);
+    --toggle-button-background-color-on-disabled: var(--sp-gray-600);
+    --toggle-button-border-color-on-disabled: var(--sp-gray-600);
+    --toggle-button-text-color-on-disabled: var(--sp-gray-800);
+
+    --button-cta-background-color: var(--sp-pink-500);
+    --button-cta-text-color: var(--sp-brand-blue-50);
+    --button-cta-background-color-hover: var(--sp-pink-600);
+    --button-cta-text-color-hover: var(--sp-brand-blue-50);
+    --button-cta-background-color-active: var(--sp-pink-600);
+    --button-cta-text-color-active: var(--sp-brand-blue-50);
+    --button-cta-background-color-focus: var(--sp-pink-600);
+    --button-cta-text-color-focus: var(--sp-brand-blue-50);
+    --button-cta-background-color-disabled: var(--sp-pink-600);
+    --button-cta-text-color-disabled: var(--sp-brand-blue-50);
+
+    --button-cta-secondary-background-color: var(--sp-blue-500);
+    --button-cta-secondary-text-color: var(--sp-brand-blue-50);
+    --button-cta-secondary-background-color-hover: var(--sp-blue-600);
+    --button-cta-secondary-text-color-hover: var(--sp-brand-blue-50);
+    --button-cta-secondary-background-color-active: var(--sp-blue-600);
+    --button-cta-secondary-text-color-active: var(--sp-brand-blue-50);
+    --button-cta-secondary-background-color-focus: var(--sp-blue-600);
+    --button-cta-secondary-text-color-focus: var(--sp-brand-blue-50);
+    --button-cta-secondary-background-color-disabled: var(--sp-blue-600);
+    --button-cta-secondary-text-color-disabled: var(--sp-brand-blue-50);
+
+    --sort-list-active-color: var(--sp-white);
+    --sort-list-active-color-hover: hsl(232 9% 72%);
+    --sort-list-inactive-color: var(--sp-white);
+    --sort-list-inactive-color-hover: hsl(232 9% 72%);
+
+    --advert-banner-background-color: var(--sp-brand-blue-600);
+    --advert-banner-text-color: var(--base-text-color);
+
+    --purge-banner-background-color: var(--sp-red-700);
+    --purge-banner-text-color: var(--base-text-color);
+
+    --alert-success-background-color: var(--sp-green-50);
+    --alert-success-color: var(--sp-gray-800);
+    --alert-success-link-color: var(--sp-green-500);
+    --alert-success-border-color: var(--sp-green-400);
+    --alert-success-icon-color: var(--sp-green-500);
+
+    --alert-info-background-color: var(--sp-blue-100);
+    --alert-info-color: var(--sp-gray-800);
+    --alert-info-link-color: var(--sp-blue-500);
+    --alert-info-border-color: var(--sp-blue-400);
+    --alert-info-icon-color: var(--sp-blue-500);
+
+    --alert-danger-background-color: var(--sp-red-50);
+    --alert-danger-color: var(--sp-gray-800);
+    --alert-danger-link-color: var(--sp-red-500);
+    --alert-danger-border-color: var(--sp-red-400);
+    --alert-danger-icon-color: var(--sp-red-500);
+
+    --alert-warning-background-color: var(--sp-orange-50);
+    --alert-warning-color: var(--sp-gray-800);
+    --alert-warning-link-color: var(--sp-orange-500);
+    --alert-warning-border-color: var(--sp-orange-400);
+    --alert-warning-icon-color: var(--sp-orange-500);
+
+    --dragbox-container-background-color: var(--sp-pink-500);
+    --magenta-gradient: linear-gradient(hsl(334 82% 63%), hsl(334 74% 36%));
+
+    --page-header-bottom-border-color: var(--sp-brand-blue-900);
+    --content-details-option-title-background-color: var(--sp-brand-blue-900);
+    --search-bar-sticky-background-color: var(--body-background-color);
+    --darken-background-color: hsl(232, 44%, 17%);
+    --filter-pill-background-color: hsl(233 26% 41%);
+    --filter-pill-color: var(--sp-white);
+    --user-profile-dropdown-mobile-header-background-color: var(--sp-brand-blue-700);
+
+    --screenpal-dropdown-background-color: var(--sp-brand-blue-700);
+    --screenpal-dropdown-text-color: var(--sp-brand-blue-50);
+
+    --dropdown-item-upgrade-title-color: var(--sp-purple-500);
+    --list-group-item-background-color: var(--sp-brand-blue-700);
+    --list-group-item-border-color: var(--sp-white);
+
+    --active-media-left-border-color: var(--sp-pink);
+    --active-tab-bottom-border-color: var(--sp-pink);
+
+    --commenting-box-footer-bg-color: var(--sp-brand-blue-800);
+    --commenting-box-highlight-background-color: var(--sp-brand-blue-600);
+
+    --losing-features-list-background-color: var(--sp-brand-blue-800);
+
+    --launch-background-color: var(--sp-white);
+    --launch-link-color: var(--sp-brand-blue-600);
+    --launch-link-color-hover: var(--sp-brand-blue-900);
+
+    --upload-field-background-color: var(--sp-brand-blue-700);
+    --upload-field-border-color: var(--sp-white);
+    --upload-field-text-color: var(--sp-white);
+    --upload-item-background-color: var(--sp-brand-blue-700);
+    --upload-item-text-color: var(--sp-white);
+    --upload-status-background-color: var(--sp-brand-blue-700);
+    --upload-status-text-color: var(--sp-white);
+
+    --guide-text-blue-color: var(--sp-blue-400);
+
+    --interaction-form-background-color: var(--sp-brand-blue-600);
+    --color-users-form-item-added-background: var(--sp-green-50);
+    --color-users-form-item-added-text: var(--sp-green-900);
+    --color-users-form-item-added-border: var(--sp-green-500);
+    --color-users-form-item-added-background-hover: var(--sp-green-100);
+    --color-users-form-item-added-text-hover: var(--sp-brand-blue-950);
+    --color-users-form-item-added-border-hover: var(--sp-green-500);
+    --color-users-form-item-removed-background: var(--sp-red-50);
+    --color-users-form-item-removed-text: var(--sp-red-950);
+    --color-users-form-item-removed-border: var(--sp-red-400);
+    --color-users-form-item-removed-background-hover: var(--sp-red-100);
+    --color-users-form-item-removed-text-hover: var(--sp-red-950);
+    --color-users-form-item-removed-border-hover: var(--sp-red-400);
+
+    --color-transcoding-message-text: var(--sp-white);
+    --color-transcoding-message-title-text: var(--sp-white);
+
+    --info-text-color: var(--sp-blue-400);
+    --info-text-color-hover: var(--sp-blue-300);
+    --info-text-color-active: var(--sp-blue-500);
+
+    --popover-link-text-color: var(--base-text-color);
+    --popover-link-text-color-hover: var(--sp-white);
+    --popover-link-text-color-focus: var(--sp-white);
+    --popover-link-text-color-active: var(--sp-white);
+    --popover-link-underline-color-hover: var(--sp-white);
+
+    --position-picker-disabled-background-color: var(--sp-brand-blue-50);
+    --position-picker-position-color: var(--sp-white);
+    --position-picker-position-after-color: var(--sp-gray-400);
+    --position-picker-position-checked-after-background-color: var(--sp-white);
+    --position-picker-position-checked-after-color: var(--sp-green-600);
+
+    --navbar-login-button-text-color: var(--sp-white);
+    --navbar-login-button-text-color-hover: var(--sp-brand-blue-300);
+
+    --signup-button-background-color: var(--sp-pink-500);
+    --signup-button-border-color: var(--sp-pink-500);
+    --signup-button-text-color: var(--sp-white);
+    --signup-button-background-color-hover: var(--sp-pink-600);
+    --signup-button-border-color-hover: var(--sp-pink-600);
+    --signup-button-text-color-hover: var(--sp-white);
+
+    --ui-autocomplete-background-color: var(--sp-brand-blue-600);
+    --ui-autocomplete-color: var(--sp-brand-blue-50);
+    --ui-autocomplete-hover-background-color: hsl(232 26% 51%);
+
+    --upload-button-border-color: var(--sp-brand-blue-50);
+    --upload-button-text-color-hover: var(--sp-white);
+
+    --upgrade-button-background-color: var(--sp-pink-500);
+    --upgrade-button-border-color: var(--sp-pink-500);
+    --upgrade-button-text-color: var(--sp-white);
+    --upgrade-button-background-color-hover: var(--sp-pink-600);
+    --upgrade-button-border-color-hover: var(--sp-pink-600);
+    --upgrade-button-text-color-hover: var(--sp-white);
+
+    --radio-button-background-color: var(--sp-white);
+    --radio-button-background-image-checked: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+    --radio-button-background-color-checked: var(--sp-green-500);
+    --radio-button-background-color-disabled: var(--sp-gray-400);
+    --radio-button-border-color-disabled: var(--sp-gray-400);
+
+    --slide-toggle-button-color: var(--sp-gray-50);
+    --slide-toggle-background-color: var(--sp-gray-600);
+    --slide-toggle-background-color-checked: var(--sp-green-400);
+
+    --cname-setup-container-background-color: var(--sp-brand-blue-700);
+
+    --numbered-bullet-background-color: var(--sp-blue-500); /* #0843cf; */
+    --numbered-bullet-text-color: var(--sp-white); /* #FFFFFF; */
+
+    --help-card-backgroud-color: var(--sp-brand-blue-900);
+    --help-card-text-color: var(--base-text-color);
+
+    --quiz-question-time-spent-text-color: var(--base-text-color);
+    --unlock-feature-cta-left-color: var(--sp-pink-500);
+    --unlock-feature-cta-left-hover-color: var(--sp-pink-400);
+    --unlock-feature-cta-right-color: var(--sp-purple-400);
+    --unlock-feature-cta-right-hover-color: var(--sp-purple-300);
+    --disabled-quiz-background-color: var(--sp-brand-blue-700);
+    --disabled-quiz-border-hover-color: var(--sp-gray-400);
+    --disabled-quiz-row-background-color: hsl(234 42% 20%);
+    --disabled-quiz-row-border-hover-color: var(--sp-gray-500);
+
+    --notification-color: var(--sp-gray-950);
+    --notification-background-color: hsl(231 4% 72% / 95%);
+    --notification-success-color: var(--sp-green-950);
+    --notification-success-background-color: hsl(137 42% 75% / 95%);
+    --notification-info-color: var(--sp-blue-950);
+    --notification-info-background-color: hsl(217 100% 87% / 95%);
+    --notification-warning-color: var(--sp-orange-950);
+    --notification-warning-background-color: hsl(14 85% 76% / 95%);
+    --notification-danger-color: var(--sp-red-950);
+    --notification-danger-background-color: hsl(357 85% 76% / 95%);
+    --notification-error-color: var(--sp-red-950);
+    --notification-error-background-color: hsl(357 85% 76% / 95%);
+
+    --sp-cta-button-background: var(--sp-pink-200);
+    --sp-cta-button-background-hover: var(--sp-pink-300);
+
+    --text-diff-color: var(--sp-orange-300);
+
+    --top-nav-color: var(--sp-white);
+    --top-nav-hover-highlight: var(--sp-pink);
+
+    /* Admin Specific Variables */
+    --admin-link-text-color: var(--sp-blue-400);
+    --admin-link-text-color-hover: var(--sp-blue-200);
+    --admin-link-danger-text-color: var(--sp-red-400);
+    --admin-link-danger-text-color-hover: var(--sp-red-200);
+    --admin-left-nav-heading-text-color:  var(--sp-gray-500);
+    --admin-tab-border-color: var(--sp-brand-blue-900);
+    --admin-tab-background-color: var(--sp-brand-blue-800);
+    --admin-manage-sale-content-tabs: var(--sp-brand-blue-900);
+    --admin-tab-text-color: var(--sp-brand-blue-50);
+    --admin-tab-background-color-hover: var(--sp-brand-blue-700);
+    --admin-tab-background-color-active: var(--sp-brand-blue-600);
+    --admin-tab-text-color-active: var(--sp-white);
+    --admin-add-icon-color: var(--sp-blue-500);
+
+    --download-quote-icon-color: var(--sp-gray-500);
+    --download-quote-icon-color-hover: var(--sp-gray-50);
+
+    --positioned-modal-background-color: var(--sp-brand-blue-600);
+    --positioned-modal-border-color: var(--sp-brand-blue-900);
+
+    --visibility-block-unpublish-button-background-color: var(--sp-blue-500);
+
+    --player-controls-block-active-background-color: var(--sp-brand-blue-600);
+
+    --timeline-item-background-color-hover: hsl(207 100% 57% / 0.1);
+    --timeline-item-copy-background-color-hover: hsl(0 100% 100% / 0.1);
+    --timeline-item-audio-description-background-color-hover: var(--sp-brand-blue-900);
+    --timeline-item-copy-audio-description-background-color: var(--sp-blue-700);
+    --timeline-item-audio-description-background-color-current: var(--sp-blue-600);
+
+    --top-primary-navbar-v2-background-color: var(--sp-brand-blue-900);
+    --top-primary-navbar-v2-mobile-upgrade-button-wrapper-background-color: var(--sp-brand-blue-950);
+    --settings-sidebar-divider-background-color: var(--sp-brand-blue-500);
+    --settings-sidebar-header-text-color: var(--sp-gray-300);
+
+    --profile-dropdown-leave-impersonate-background-color: var(--sp-orange);
+    --profile-dropdown-leave-impersonate-text-color: var(--sp-white);
+
+    --settings-card-background-color: var(--sp-brand-blue-800);
+    --settings-content-preview-card-background-color: var(--sp-brand-blue-900);
+    --settings-browser-tab-title-preview-color: var(--sp-gray-900);
+    --settings-watch-page-preview-navbar-background-color: var(--sp-brand-blue-800);
+    --settings-home-page-select-disabled-border-color: var(--sp-gray-600);
+    --settings-home-page-select-disabled-background-color: var(--sp-gray-600);
+    --settings-home-page-select-disabled-text-color: var(--sp-gray-950);
+    --settings-table-thead-row-background-color: var(--sp-brand-blue-800);
+    --settings-table-thead-cell-text-color: var(--sp-gray-400);
+    --settings-table-tbody-row-background-color: var(--sp-brand-blue-900);
+    --settings-authentication-upload-idp-background-color: var(--sp-brand-blue-900);
+    --settings-usage-overview-background-color: var(--sp-brand-blue-900);
+
+    --settings-disabled-sidebar-item-text-color: var(--sp-gray);
+
+    --badge-beta-cta-color: var(--sp-white);
+    --badge-beta-cta-background-color: var(--color-cta);
+}

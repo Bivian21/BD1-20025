@@ -1,0 +1,87 @@
+// Dismiss success alerts after 5 seconds.
+function autoDismissAlert(className, duration) {
+    let classNames = [];
+    if (className) {
+        classNames = className.split(',');
+    } else {
+        classNames = ['success,info,warning'];
+    }
+
+    const durationMs = parseInt(duration, 10) > 0 ? parseInt(duration, 10) : 5000;
+
+    if (!window.alertTimeouts) {
+        window.alertTimeouts = {};
+    }
+    classNames.map(function (name) {
+        window.alertTimeouts[name] = setTimeout(function () {
+            $('.alert-' + name).fadeOut('slow', function () {
+                $('.alert-' + name).alert('dismiss');
+                delete window.alertTimeouts[name];
+            });
+        }, durationMs);
+        return null;
+    });
+}
+
+function triggerAlert(type, message, undoUrl, duration) {
+    const alertElement = $(`
+    <div id = "alert-dialog" class="alert alert-${type} alert-dismissible general-alert">
+        <div class="row">
+            <div class="col-10">
+                ${message}
+            </div>
+            <div class="col-1">
+                <a class="btn btn-outline-success btn-sm btn-undo" href="#" type="button">Undo</a>
+            </div>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    `);
+    if (!undoUrl) {
+        alertElement.find('.btn-undo').remove();
+    } else {
+        alertElement.find('.btn-undo').attr('href', undoUrl);
+    }
+    $('body').find(`.alert.alert-${type}`).fadeOut('fast');
+    $('body').append(alertElement);
+    if (['success', 'info', 'warning'].includes(type)) {
+        autoDismissAlert(type, duration);
+    }
+}
+
+$(window).on('notify', function (event) {
+    const eventData = event.originalEvent.detail;
+    triggerAlert(eventData.type, eventData.message, eventData.undoUrl, eventData.duration);
+});
+$(document).on('ready', function () {
+    // If there is an alert setup in local storage, trigger it.
+    if (localStorage.getItem('alertData')) {
+        const alertData = JSON.parse(localStorage.getItem('alertData'));
+        triggerAlert(alertData.type, alertData.message, alertData.undoUrl);
+        localStorage.removeItem('alertData');
+    }
+});
+
+$('body').on('mouseenter', '.alert.general-alert', function (e) {
+    let type = '';
+    if (e.currentTarget.classList.contains('alert-success')) {
+        type = 'success';
+    } else if (e.currentTarget.classList.contains('alert-info')) {
+        type = 'info';
+    }
+    if (type && window.alertTimeouts && window.alertTimeouts[type]) {
+        clearTimeout(window.alertTimeouts[type]);
+    }
+}).on('mouseleave', '.alert.general-alert', function (e) {
+    let type = '';
+    if (e.currentTarget.classList.contains('alert-success')) {
+        type = 'success';
+    } else if (e.currentTarget.classList.contains('alert-info')) {
+        type = 'info';
+    }
+    if (type) {
+        autoDismissAlert(type, 4000);
+    }
+});

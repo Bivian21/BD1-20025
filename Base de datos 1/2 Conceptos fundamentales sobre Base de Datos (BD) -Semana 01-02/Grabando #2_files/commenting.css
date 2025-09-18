@@ -1,0 +1,149 @@
+button.ellipsisMenu {
+    background: transparent;
+    border: transparent;
+}
+
+.comment {
+    border-radius: 7px 7px 0px 0px !important;
+    height: auto;
+    min-height: 120px;
+    resize: none;
+}
+
+#comment:empty:before {
+    content: attr(placeholder);
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    background-color: transparent;
+}
+
+.comment:focus {
+    border: .2rem solid rgba(0,123,255,.25);
+    box-shadow: none;
+}
+
+.comment:focus + .commenting-button-container {
+    border: .2rem solid rgba(0,123,255,.25);
+}
+
+.comment-post-button {
+    max-width: 120px;
+    max-height: 38px;
+}
+
+.comment-row .dropdown {
+    visibility: hidden;
+}
+
+.comment-row:hover .dropdown {
+    visibility: visible;
+}
+
+.comment-text {
+    overflow-wrap: break-word;
+}
+
+.commenting-button-container {
+    display: flex;
+    border-radius: 0px 0px 7px 7px;
+}
+
+.commenting-button-container {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.comment-header {
+    display: flex;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.commenting-time-input {
+    width: 100px;
+    text-align: center;
+}
+
+.disabled-button {
+    background-color:rgb(223,224,228) !important;
+}
+
+.error-border {
+    border: 1px solid red !important;
+    box-shadow: 0 0 3px 0px red;
+  }
+
+.form-check-input:checked {
+    background-color: #a0d16c !important;
+    border-color: #a0d16c !important;
+}
+
+.h-60 {
+    height: 60%;
+}
+
+.hidden-scrollbar {
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-dialog {
+    max-width: 683px;
+    color: var(--base-text-color);
+}
+
+.report-options .form-check-label {
+    margin-top: 0px;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+.screenpal-advert,
+.screenpal-advert a{
+    color: var(--sp-white) !important;
+    text-align: center;
+}
+
+.user-circle {
+    background: var(--user-circle-background-color);
+    border-radius: 1em;
+    color: var(--user-circle-text-color);
+    font-size: 22px;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    vertical-align: text-bottom;
+    min-width: 2em;
+    max-width: 2em;
+    width: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.w-600 {
+    max-width: 600px;
+}
+
+@media (max-width: 575px) {
+    .comment-header {
+        display: block;
+    }
+
+    .comment-row {
+        display: flex;
+        justify-content: between;
+    }
+
+    .comment-post-button {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,64 @@
+.som-basicLightbox {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, .8);
+    opacity: .01;
+    transition: opacity .4s ease;
+    z-index: 1000000;
+    will-change: opacity
+}
+
+.som-basicLightbox--visible {
+    opacity: 1
+}
+
+.som-basicLightbox__placeholder {
+    max-width: 100%;
+    transform: scale(.9);
+    transition: transform .4s ease;
+    z-index: 1;
+    will-change: transform
+}
+
+.som-basicLightbox__placeholder > iframe:first-child:last-child, 
+.som-basicLightbox__placeholder > img:first-child:last-child, 
+.som-basicLightbox__placeholder > video:first-child:last-child {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-width: 95%;
+    max-height: 95%
+}
+
+.som-basicLightbox__placeholder > iframe:first-child:last-child, 
+.som-basicLightbox__placeholder > video:first-child:last-child {
+    pointer-events: auto
+}
+
+.som-basicLightbox__placeholder > img:first-child:last-child, 
+.som-basicLightbox__placeholder > video:first-child:last-child {
+    width: auto;
+    height: auto
+}
+
+.som-basicLightbox--iframe .som-basicLightbox__placeholder, 
+.som-basicLightbox--img .som-basicLightbox__placeholder, 
+.som-basicLightbox--video .som-basicLightbox__placeholder {
+    width: 100%;
+    height: 100%;
+    pointer-events: none
+}
+
+.som-basicLightbox--visible .som-basicLightbox__placeholder {
+    transform: scale(1)
+}

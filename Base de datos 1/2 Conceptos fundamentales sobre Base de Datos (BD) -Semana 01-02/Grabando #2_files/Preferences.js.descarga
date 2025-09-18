@@ -1,0 +1,2 @@
+'use strict';self.Preferences=function(){return{save:function(b,c){let d=JSON.stringify(c);Utils.isEmbed()?window.localStorage.setItem(b,d):(c={},c[b]=d,chrome.storage.local.set(c,function(){console.log("Stored '"+b+"' \x3d "+d)}))},load:function(b,c,d){if(Utils.isEmbed()){let a=window.localStorage.getItem(b);a=void 0===a||null===a?c:JSON.parse(a);d(a)}else chrome.storage.local.get(b,function(a){a[b]?(console.log("Loaded '"+b+"' \x3d "+a[b]),a=JSON.parse(a[b])):(console.log("No '"+b+"' found so using default: "+
+JSON.stringify(c)),a=c);d(a)})}}}();

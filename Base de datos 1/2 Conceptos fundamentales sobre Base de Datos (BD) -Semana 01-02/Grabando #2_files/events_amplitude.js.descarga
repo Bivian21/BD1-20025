@@ -1,0 +1,220 @@
+var ampDeviceId;
+var ampWaitingFunc;
+
+// Check if referrer should be replaced based on explicit opt-in parameter Devs should add
+// ?replace_analytics_ref to iframe URLs that need referrer replacement
+function shouldReplaceReferrer(url) {
+    if (!url) return false;
+    try {
+        var urlObj = new URL(url, window.location.href);
+        return urlObj.searchParams.has('replace_analytics_ref');
+    } catch (e) {
+        // Fallback for malformed URLs
+        return url.indexOf('replace_analytics_ref') !== -1;
+    }
+}
+
+(function(){
+    // Only the TOP window may write the "previous page" so iframes can't provide an incorrect referrer.
+    var IS_TOP = (window.top === window);
+    var LS_KEY = 'sp_prev_url';
+
+    function getPrev(){ try { return sessionStorage.getItem(LS_KEY) || ''; } catch(e){ return ''; } }
+    function setPrev(u){ try { sessionStorage.setItem(LS_KEY, u); } catch(e){} }
+
+    // Compute an effective referrer for this page using last top-level URL if browser referrer needs replacement
+    // OR set SP_EFFECTIVE_REFERRER to empty string, so we know there isn't an override to use
+    var docRef = document.referrer || '';
+    var prev   = getPrev();
+    window.SP_EFFECTIVE_REFERRER = (docRef && shouldReplaceReferrer(docRef) && prev) ? prev : '';
+
+    // Record this page as "prev" for the NEXT page (top window only).
+    if (IS_TOP) {
+        // Set after current tick and again on unload to cover all nav cases.
+        setTimeout(function(){ setPrev(location.href); }, 0);
+        window.addEventListener('beforeunload', function(){ setPrev(location.href); });
+    }
+})();
+
+(function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
+;r.type="text/javascript";r.async=true
+;r.src="https://cdn.amplitude.com/libs/amplitude-4.5.2-min.gz.js"
+;r.onload=function(){if(e.amplitude.runQueuedFunctions){
+    e.amplitude.runQueuedFunctions()}else{
+    console.log("[Amplitude] Error: could not load SDK")}}
+;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
+;function s(e,t){e.prototype[t]=function(){
+    this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
+    var o=function(){this._q=[];return this}
+    ;var a=["add","append","clearAll","prepend","set","setOnce","unset"]
+    ;for(var u=0;u<a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[]
+        ;return this}
+    ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
+    ;for(var p=0;p<l.length;p++){s(c,l[p])}n.Revenue=c
+    ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId"]
+    ;function v(e){function t(t){e[t]=function(){
+        e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
+        for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
+        e=(!e||e.length===0?"$default_instance":e).toLowerCase()
+        ;if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]}
+    ;e.amplitude=n})(window,document);
+
+analyticsImpls.push({
+    analyticsSignup: function (id) {
+    },
+
+    analyticsLogout: function () {
+    },
+
+    analyticsUserProperties: function (propertiesArray) {
+        try {
+            var p = ampCloneObjectForAnalytics(propertiesArray, true);
+            if (!p)
+                return;
+
+            // Anytime they setup the email address we'll also add the hasEmail property
+            if (p['email'])
+                p['hasEmail'] = true;
+
+            amplitude.getInstance().setUserProperties(p);
+        }
+        catch (e) {
+        }
+    },
+
+    analyticsIncUserProperty: function (name, num) {
+        try {
+            var identify = new amplitude.Identify().add(name, num);
+            amplitude.getInstance().identify(identify);
+        }
+        catch (e) {
+        }
+    },
+
+    analyticsEvent: function (name, propertiesArray, callback) {
+        try {
+            var p = ampCloneObjectForAnalytics(propertiesArray, false);
+
+            // Always add timestamp to event
+            p['timestamp'] = parseInt((new Date().getTime())/1000);
+
+            // Use corrected referrer; also override if caller passed a known bogus value
+            if (!('referrer' in p) || window.SP_EFFECTIVE_REFERRER) {
+                // If we don't have a referrer set OR we have a forced override then we replace the value
+                p['referrer'] = window.SP_EFFECTIVE_REFERRER || document.referrer;
+            }
+
+            if (!p['from'])
+                p['from'] = window.location.href;
+
+            // For events that have the word "visit" in them, we want to measure timing data.
+            // This includes time to first byte, time the server took, and the total time
+            // it took the page to load.
+            if(name.toLowerCase().includes('visit')){
+                const TIME_TO_FIRST_BYTE  = 'timeToFirstByteSec';
+                const SERVER_REQUEST_TIME = 'serverRequestTimeSec';
+                const PAGE_LOAD_TIME      = 'pageLoadTimeSec';
+                const NETWORK_TIME        = 'networkTimeSec';
+
+                let performanceObserver;
+
+                (performanceObserver = new PerformanceObserver((entryList) => {
+                    // First measure the time to first byte.
+                    const [pageNav] = entryList.getEntriesByType('navigation');
+
+                    // Divide by 1000 since time provided in milliseconds.
+                    p[TIME_TO_FIRST_BYTE] = (pageNav.responseStart/1000).toFixed(2);
+
+                    // Next retrieve the server time which will be detected by PerformanceObserver
+                    // via the Server-Timing header that gets set in RequestTimingMiddleware.php
+                    for (const entry of entryList.getEntries()) {
+                        entry.serverTiming.forEach((serverTiming) => {
+                            if(serverTiming.name === 'serverRequestTime'){
+                                p[SERVER_REQUEST_TIME] = serverTiming.duration;
+                            }
+                        });
+                    }
+
+                    const runOnLoaded = () => {
+                        // We use setTimeout here to make sure the browser has fully loaded. This makes sure we get accurate timing data from
+                        // performance.getEntriesByType('navigation'), particularly for the loadEventEnd time.
+                        setTimeout(() => {
+                            const [navigation] = performance.getEntriesByType('navigation');
+                            if (navigation) {
+                                // Divide by 1000 since time provided in milliseconds.
+                                p[PAGE_LOAD_TIME] = ((navigation.loadEventEnd - navigation.startTime)/1000).toFixed(2);
+
+                                // We already have total time so make sure we also have the server time before
+                                // we try to calculate network time.
+                                if(p[SERVER_REQUEST_TIME] !== 0) {
+                                    // And finally measure the network time which is the total time for the request to finish
+                                    // (excluding browser render time) minus the server time. Note that we need to divide
+                                    // the first part of the calculation below by 1000 because it is in ms.
+                                    p[NETWORK_TIME] = (((navigation.responseEnd - navigation.startTime)/1000) - p[SERVER_REQUEST_TIME]).toFixed(2);
+                                }
+                                amplitude.getInstance().logEvent(name, p, callback);
+                            }
+                        }, 0);
+                    }
+
+                    // Measure when the page fully loads which is the total time.
+                    if (document.readyState === 'complete') {
+                        // Page is already loaded, so we're firing this event after that has already happened which
+                        // is the case in free.blade.php which fires after an iframe loads.
+                        runOnLoaded();
+                    } else {
+                        // Page hasn't fully loaded so waiting
+                        window.addEventListener('load', runOnLoaded);
+                    }
+
+                    // We only care about navigation updates so after first update we can bail and if document isn't
+                    // complete then the load listener will finish up sending the event.
+                    performanceObserver.disconnect();
+                })).observe({
+                    type: 'navigation',
+                    buffered: true
+                });
+            }else{
+                amplitude.getInstance().logEvent(name, p, callback);
+            }
+        }
+        catch (e) {
+        }
+    },
+
+    analyticsRevenue: function (productId, price, transactionId, coupon) {
+        try {
+            var revenue = new amplitude.Revenue().setProductId(productId).setPrice(price);
+            amplitude.getInstance().logRevenueV2(revenue);
+        }
+        catch (e) {
+        }
+    },
+
+    analyticsGetDeviceId: function (func) {
+        try {
+            if (ampDeviceId)
+                func(ampDeviceId);
+            else
+                ampWaitingFunc = func;
+        }
+        catch (e) {
+        }
+    }
+});
+
+function ampCloneObjectForAnalytics(o, checkNoKeys) {
+    var temp = {};
+    var foundKeys = false;
+    if (o) {
+        for (var key in o) {
+            temp[key] = o[key];
+            foundKeys = true;
+        }
+    }
+
+    if (checkNoKeys && !foundKeys)
+        return undefined;
+
+    return temp;
+}

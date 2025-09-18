@@ -1,0 +1,103 @@
+let isSecondaryPlayerShown = false;
+let playerClasses;
+let playerHeight;
+let scrollingArea;
+
+if ($('#screencast-video').hasClass('watch-page')) {
+    playerClasses = 'w-100 screencast-video frame';
+} else if ($('#screencast-video').hasClass('sidebar-channel')) {
+    playerClasses = 'h-90 frame';
+}
+
+if ($('#carousel-player-wrapper').length > 0) {
+    scrollingArea = $('#carousel-player-wrapper');
+} else {
+    scrollingArea = $('#video-frame');
+}
+
+scrollingArea.scroll(function() {
+    minifiedPlayerShift();
+    if (scrollingArea.scrollTop() > playerHeight) {
+        if (!$('#player-placeholder').height()) {
+            $('#player-placeholder').height(playerHeight);
+        }
+        $('.minified-player-title').removeClass('d-none');
+
+        $('#screencast-video')
+            .addClass('minified-player')
+            .removeClass(playerClasses);
+
+        if (!isSecondaryPlayerShown) {
+            $("iframe#screencast-video")
+                .contents()
+                .find("#mp4Player").addClass('hide-buttons');
+        }
+
+        isSecondaryPlayerShown = true;
+    } else {
+        hideMinifiedPlayer();
+    }
+});
+
+function hideMinifiedPlayer() {
+    $('#player-placeholder').height(0);
+    $('.minified-player-title').addClass('d-none');
+
+    $('#screencast-video')
+        .removeClass('minified-player')
+        .addClass(playerClasses);
+
+    isSecondaryPlayerShown = false;
+}
+
+function minifiedPlayerShift() {
+    if ($('#screencast-video').hasClass('minified-player')) {
+        if (
+            $('#info-frame').length > 0 &&
+            $('#info-frame').css('display') !== 'none'
+        ) {
+            let shiftedPlayerPosition = $('#info-frame').width() + 50 + 'px';
+            $('#screencast-video').css('right', shiftedPlayerPosition);
+            $('.minified-player-title').css('right', shiftedPlayerPosition);
+        } else {
+            $('#screencast-video').css('right', '50px');
+            $('.minified-player-title').css('right', '50px');
+        }
+    } else {
+        $('#screencast-video').css('right', 0);
+    }
+}
+
+document.querySelector("iframe").addEventListener( "load", function(e) {
+    $('.minified-player-title').css(
+        'background-color',
+        $("iframe#screencast-video").contents().find(".vjs-play-control").css('background-color')
+    );
+    if (
+        $('#screencast-video').hasClass('watch-page') ||
+        $('#screencast-video').hasClass('sidebar-channel')
+    ) {
+        $('.minified-player-title').text(
+            $("iframe#screencast-video")
+                .contents()
+                .find(".overlayTitle")
+                .text()
+        );
+    }
+
+    if (!isSecondaryPlayerShown) {
+        playerHeight = $('#screencast-video').height();
+    }
+
+    if($("iframe#screencast-video").contents().find("#mp4Player").hasClass('light-bg')) {
+        $('.minified-player-title').removeClass('text-white').addClass('border');
+    } else {
+        $('.minified-player-title').addClass('text-white').removeClass('border');
+    }
+
+    if ($('#screencast-video').hasClass('minified-player')) {
+        $("iframe#screencast-video")
+            .contents()
+            .find("#mp4Player").addClass('hide-buttons');
+    }
+});
